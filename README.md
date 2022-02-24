@@ -1,4 +1,4 @@
-# terraformdemo
+# terraformdemo teslamate
 Getting Started with teslamate on Azure
 
 
