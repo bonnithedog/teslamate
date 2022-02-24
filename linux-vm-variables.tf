@@ -33,10 +33,10 @@ variable "web-linux-vm-image" {
   type        = map(string)
   description = "Virtual machine source image information"
   default     = {
-    publisher = "clear-linux-project" 
-    offer     = "clear-linux-os" 
-    sku       = "basic" 
-    version   = "latest"
+    publisher = "Cognosys" 
+    offer     = "docker-ce-with-centos-8-0-free" 
+    sku       = "docker-ce-with-centos-8-0-free" 
+    version   = "1.2019.0710"
   }
 }
 # Azure virtual machine OS profile #
