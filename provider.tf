@@ -1,17 +1,15 @@
 
 
-# Azure Provider source and version being used
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "=2.97.0"
-    }
-  }
-}
+# Define Terraform provider
+ terraform {
+  required_version = ">= 0.14"
+ }
 
-# Configure the Microsoft Azure Provider
-provider "azurerm" {
-  features {}
-}
 
+ #Configure the Azure Provider
+ provider "azurerm" {
+   features {}
+   version         = "=2.97.0"
+   environment     = "public"
+
+ }
