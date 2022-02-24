@@ -1,15 +1,15 @@
 
 
 # Define Terraform provider
-# terraform {
+ terraform {
 #  required_version = ">= 0.14"
-# }
+   version         = "=2.97.0"
+ }
 
 
  #Configure the Azure Provider
  provider "azurerm" {
    features {}
-   version         = "=2.97.0"
    environment     = "public"
 
  }
