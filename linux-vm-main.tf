@@ -140,13 +140,6 @@ data "template_file" "linux-vm-cloud-init" {
 # Create Linux VM with web server
 resource "azurerm_linux_virtual_machine" "web-linux-vm" {
   
-  # ...
- #plan {
- #   publisher = lookup(var.web-linux-vm-image, "publisher", null)
- #   name      = "linux-${random_string.random-linux-vm.result}-vm"
- #   product   = lookup(var.web-linux-vm-image, "sku", null)
- # }
-# ...
   
   depends_on=[azurerm_network_interface.web-linux-vm-nic]
   name = "linux-${random_string.random-linux-vm.result}-vm"
@@ -160,6 +153,19 @@ resource "azurerm_linux_virtual_machine" "web-linux-vm" {
     sku       = lookup(var.web-linux-vm-image, "sku", null)
     version   = lookup(var.web-linux-vm-image, "version", null)
   }
+  
+  
+
+ plan {
+      name      = lookup(var.web-linux-vm-image, "sku", null)
+      publisher = lookup(var.web-linux-vm-image, "publisher", null)
+      product   = lookup(var.web-linux-vm-image, "offer", null)
+  }
+
+  
+  
+  
+  
   os_disk {
    name = "linux-${random_string.random-linux-vm.result}-vm-os-disk"
    caching              = "ReadWrite"
