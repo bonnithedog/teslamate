@@ -36,7 +36,7 @@ variable "web-linux-vm-image" {
     publisher = "Cognosys" 
     offer     = "docker-ce-with-centos-8-0-free" 
     sku       = "docker-ce-with-centos-8-0-free" 
-    version   = "1.2019.0710"
+    version   = "latest"
   }
 }
 # Azure virtual machine OS profile #
