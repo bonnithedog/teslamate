@@ -33,9 +33,9 @@ variable "web-linux-vm-image" {
   type        = map(string)
   description = "Virtual machine source image information"
   default     = {
-    publisher = "OpenLogic" 
-    offer     = "CentOS" 
-    sku       = "7.5" 
+    publisher = "Canonical" 
+    offer     = "UbuntuServer" 
+    sku       = "16.04-LTS" 
     version   = "latest"
   }
 }
