@@ -33,9 +33,9 @@ variable "web-linux-vm-image" {
   type        = map(string)
   description = "Virtual machine source image information"
   default     = {
-    publisher = "Cognosys" 
-    offer     = "docker-ce-with-centos-8-0-free" 
-    sku       = "docker-ce-with-centos-8-0-free" 
+    publisher = "OpenLogic" 
+    offer     = "CentOS" 
+    sku       = "7.5" 
     version   = "latest"
   }
 }
