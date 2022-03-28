@@ -141,11 +141,11 @@ data "template_file" "linux-vm-cloud-init" {
 resource "azurerm_linux_virtual_machine" "web-linux-vm" {
   
   # ...
- plan {
-    publisher = lookup(var.web-linux-vm-image, "publisher", null)
-    name      = "linux-${random_string.random-linux-vm.result}-vm"
-    product   = lookup(var.web-linux-vm-image, "sku", null)
-  }
+ #plan {
+ #   publisher = lookup(var.web-linux-vm-image, "publisher", null)
+ #   name      = "linux-${random_string.random-linux-vm.result}-vm"
+ #   product   = lookup(var.web-linux-vm-image, "sku", null)
+ # }
 # ...
   
   depends_on=[azurerm_network_interface.web-linux-vm-nic]
