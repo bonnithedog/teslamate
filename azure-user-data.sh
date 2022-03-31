@@ -11,6 +11,11 @@ sudo apt install aptitude -y
 sudo apt-get update
 sudo apt-get install -y npm
 
+# Install jq
+
+sudo apt-get update
+sudo apt-get install -y jq
+
 # Postgres (v12+)
 
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
