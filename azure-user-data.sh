@@ -138,7 +138,9 @@ sudo systemctl enable teslamate
 
 ./grafana/dashboards.sh restore
 
+sudo systemctl restart grafana-server
 
+sudo systemctl restart teslamate
 
 
 
