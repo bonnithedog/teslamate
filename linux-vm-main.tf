@@ -156,11 +156,11 @@ resource "azurerm_linux_virtual_machine" "web-linux-vm" {
   
   
 
- # plan {
- #     name      = lookup(var.web-linux-vm-image, "sku", null)
- #     publisher = lookup(var.web-linux-vm-image, "publisher", null)
- #     product   = lookup(var.web-linux-vm-image, "offer", null)
- # }
+  plan {
+      name      = lookup(var.web-linux-vm-image, "sku", null)
+      publisher = lookup(var.web-linux-vm-image, "publisher", null)
+      product   = lookup(var.web-linux-vm-image, "offer", null)
+  }
 
   
   
