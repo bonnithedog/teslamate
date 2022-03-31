@@ -61,6 +61,7 @@ git checkout $(git describe --tags `git rev-list --tags --max-count=1`) # Checko
 
 # Create PostgreSQL database
 sudo touch db_create.sql
+sudo chmod 777 db_create.sql
 
 sudo echo "create database teslamate;" >> db_create.sql
 sudo echo "create user teslamate with encrypted password 'CrazyS0mmer201602!';" >> db_create.sql
@@ -68,8 +69,21 @@ sudo echo "grant all privileges on database teslamate to teslamate;" >> db_creat
 sudo echo "ALTER USER teslamate WITH SUPERUSER;" >> db_create.sql
 sudo echo "\q" >> db_create.sql
 
+
 sudo -u postgres psql -f db_create.sql
 
+# Compile Elixir Project
+
+sudo mix local.hex --force; mix local.rebar --force
+
+sudo mix deps.get --only prod
+sudo npm install --prefix ./assets && npm run deploy --prefix ./assets
+
+sudo MIX_ENV=prod mix do phx.digest, release --overwrite
+
+# Set your system locale
+sudo locale-gen en_US.UTF-8
+sudo localectl set-locale LANG=en_US.UTF-8
 
 
 
