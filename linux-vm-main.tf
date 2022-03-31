@@ -39,7 +39,7 @@ resource "azurerm_network_security_group" "web-linux-vm-nsg" {
     security_rule {
     name                       = "allow-3000"
     description                = "allow-3000"
-    priority                   = 100
+    priority                   = 110
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
@@ -51,59 +51,6 @@ resource "azurerm_network_security_group" "web-linux-vm-nsg" {
   
   
   
-  
-  # security_rule {
-  #   name                       = "FTP-Passive-Traffic-In"
-  #   description                = "FTP Passive Traffic-In"
-  #   priority                   = 140
-  #   direction                  = "Inbound"
-  #   access                     = "Allow"
-  #   protocol                   = "Tcp"
-  #   source_port_range          = "*"
-  #   destination_port_range     = "1024-65535"
-  #   source_address_prefix      = "Internet"
-  #   destination_address_prefix = "*"
-  # }
- 
-#    security_rule {
-#    name                       = "allow-FTP"
-#    description                = "allow-FTP"
-#    priority                   = 130
-#    direction                  = "Inbound"
-#    access                     = "Allow"
-#    protocol                   = "Tcp"
-#    source_port_range          = "*"
-#    destination_port_range     = "21"
-#    source_address_prefix      = "Internet"
-#    destination_address_prefix = "*"
-#  }
-
-
-#    security_rule {
-#    name                       = "FTP-SSL-Traffic-In"
-#    description                = "FTP SSL Traffic-In"
-#    priority                   = 150
-#    direction                  = "Inbound"
-#    access                     = "Allow"
-#    protocol                   = "Tcp"
-#    source_port_range          = "*"
-#    destination_port_range     = "990"
-#    source_address_prefix      = "Internet"
-#    destination_address_prefix = "*"
-#  }
-
-#    security_rule {
-#    name                       = "FTP-Passive"
-#    description                = "FTP-Passive"
-#    priority                   = 160
-#    direction                  = "Inbound"
-#    access                     = "Allow"
-#    protocol                   = "Tcp"
-#    source_port_range          = "*"
-#    destination_port_range     = "50000-51000"
-#    source_address_prefix      = "Internet"
-#    destination_address_prefix = "*"
-#  }
 
   tags = {
     application = var.app_name
