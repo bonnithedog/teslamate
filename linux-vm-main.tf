@@ -85,7 +85,7 @@ resource "azurerm_network_security_group" "web-linux-vm-nsg" {
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "3000"
+    destination_port_range     = "4000"
     source_address_prefix      = "Internet"
     destination_address_prefix = "*" 
   }
