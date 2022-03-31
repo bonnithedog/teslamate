@@ -1,5 +1,6 @@
 #! /bin/bash
 sudo apt-get update
+sudo apt install aptitude -y
 # sudo apt-get install -y apache2
 # sudo systemctl start apache2
 # sudo systemctl enable apache2
@@ -42,7 +43,7 @@ sudo systemctl restart grafana-server
 
 sudo apt-get install -y mosquitto
 
-Node.js (v14+)
+# Node.js (v14+)
 
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
