@@ -41,3 +41,19 @@ Node.js (v14+)
 
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
+
+
+# Clone TeslaMate git repository
+
+cd /usr/src
+
+git clone https://github.com/adriankumpf/teslamate.git
+cd teslamate
+
+git checkout $(git describe --tags `git rev-list --tags --max-count=1`) # Checkout the latest stable version
+
+
+# Create PostgreSQL database
+# Manual from here
+
+
