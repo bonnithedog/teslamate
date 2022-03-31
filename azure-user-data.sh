@@ -63,11 +63,11 @@ git checkout $(git describe --tags `git rev-list --tags --max-count=1`) # Checko
 sudo touch db_create.sql
 sudo chmod 777 db_create.sql
 
-sudo echo "create database teslamate;" >> db_create.sql
+sudo echo 'create database teslamate;' >> db_create.sql
 sudo echo "create user teslamate with encrypted password 'CrazyS0mmer201602!';" >> db_create.sql
-sudo echo "grant all privileges on database teslamate to teslamate;" >> db_create.sql
-sudo echo "ALTER USER teslamate WITH SUPERUSER;" >> db_create.sql
-sudo echo "\q" >> db_create.sql
+sudo echo 'grant all privileges on database teslamate to teslamate;' >> db_create.sql
+sudo echo 'ALTER USER teslamate WITH SUPERUSER;' >> db_create.sql
+sudo echo '\q' >> db_create.sql
 
 
 sudo -u postgres psql -f db_create.sql
