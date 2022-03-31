@@ -20,5 +20,5 @@ variable "environment" {
 variable "location" {
   type        = string
   description = "Azure region where the resources will be created"
-  default     = "North Europe"
+  default     = "West Europe"
 }
