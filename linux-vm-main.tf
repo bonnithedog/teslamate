@@ -36,7 +36,22 @@ resource "azurerm_network_security_group" "web-linux-vm-nsg" {
     destination_address_prefix = "*" 
   }
 
-
+    security_rule {
+    name                       = "allow-3000"
+    description                = "allow-3000"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "3000"
+    source_address_prefix      = "Internet"
+    destination_address_prefix = "*" 
+  }
+  
+  
+  
+  
   # security_rule {
   #   name                       = "FTP-Passive-Traffic-In"
   #   description                = "FTP Passive Traffic-In"
