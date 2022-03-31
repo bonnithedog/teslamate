@@ -134,6 +134,11 @@ sudo systemctl start teslamate
 # Make it start at boot
 sudo systemctl enable teslamate
 
+# Import Grafana Dashboards
+
+./grafana/dashboards.sh restore
+
+
 
 
 
