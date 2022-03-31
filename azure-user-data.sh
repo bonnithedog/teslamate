@@ -91,17 +91,17 @@ sudo touch /etc/systemd/system/teslamate.service
 sudo chmod 777 /etc/systemd/system/teslamate.service
 
 sudo echo "[Unit]" >> /etc/systemd/system/teslamate.service
-sudo echo "Description=TeslaMate >> /etc/systemd/system/teslamate.service
-sudo echo "After=network.target >> /etc/systemd/system/teslamate.service
-sudo echo "After=postgresql.service >> /etc/systemd/system/teslamate.service
+sudo echo "Description=TeslaMate" >> /etc/systemd/system/teslamate.service
+sudo echo "After=network.target" >> /etc/systemd/system/teslamate.service
+sudo echo "After=postgresql.service" >> /etc/systemd/system/teslamate.service
 
-sudo echo "[Service] >> /etc/systemd/system/teslamate.service
-sudo echo "Type=simple >> /etc/systemd/system/teslamate.service
-sudo echo "# User=username >> /etc/systemd/system/teslamate.service
-sudo echo "# Group=groupname >> /etc/systemd/system/teslamate.service
+sudo echo "[Service]" >> /etc/systemd/system/teslamate.service
+sudo echo "Type=simple" >> /etc/systemd/system/teslamate.service
+sudo echo "# User=username" >> /etc/systemd/system/teslamate.service
+sudo echo "# Group=groupname" >> /etc/systemd/system/teslamate.service
 
-sudo echo "Restart=on-failure >> /etc/systemd/system/teslamate.service
-sudo echo "RestartSec=5 >> /etc/systemd/system/teslamate.service
+sudo echo "Restart=on-failure" >> /etc/systemd/system/teslamate.service
+sudo echo "RestartSec=5" >> /etc/systemd/system/teslamate.service
 
 sudo echo "Environment="HOME=/usr/src/teslamate" >> /etc/systemd/system/teslamate.service
 sudo echo "Environment="LANG=en_US.UTF-8" >> /etc/systemd/system/teslamate.service
@@ -109,7 +109,7 @@ sudo echo "Environment="LC_CTYPE=en_US.UTF-8" >> /etc/systemd/system/teslamate.s
 sudo echo "Environment="TZ=Europe/Berlin" >> /etc/systemd/system/teslamate.service
 sudo echo "Environment="PORT=4000" >> /etc/systemd/system/teslamate.service
 sudo echo "Environment="DATABASE_USER=teslamate" >> /etc/systemd/system/teslamate.service
-sudo echo "Environment="DATABASE_PASS=CrazyS0mmer201602! >> /etc/systemd/system/teslamate.service
+sudo echo "Environment="DATABASE_PASS=CrazyS0mmer201602!" >> /etc/systemd/system/teslamate.service
 sudo echo "Environment="DATABASE_NAME=teslamate" >> /etc/systemd/system/teslamate.service
 sudo echo "Environment="DATABASE_HOST=127.0.0.1" >> /etc/systemd/system/teslamate.service
 sudo echo "Environment="MQTT_HOST=127.0.0.1" >> /etc/systemd/system/teslamate.service
