@@ -29,13 +29,15 @@ variable "web-linux-delete-data-disks-on-termination" {
   type        = string
   default     = "true" # Update for your environment
 }
+
+# UbuntuServer Canonical  18.04-LTS  Canonical latest
 variable "web-linux-vm-image" {
   type        = map(string)
   description = "Virtual machine source image information"
   default     = {
     publisher = "Canonical" 
     offer     = "UbuntuServer" 
-    sku       = "20.04-LTS" 
+    sku       = "18.04-LTS" 
     version   = "latest"
   }
 }
