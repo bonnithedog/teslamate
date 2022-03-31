@@ -114,14 +114,14 @@ sudo echo "Environment="DATABASE_NAME=teslamate" >> /etc/systemd/system/teslamat
 sudo echo "Environment="DATABASE_HOST=127.0.0.1" >> /etc/systemd/system/teslamate.service
 sudo echo "Environment="MQTT_HOST=127.0.0.1" >> /etc/systemd/system/teslamate.service
 
-sudo echo "WorkingDirectory=/usr/src/teslamate >> /etc/systemd/system/teslamate.service
+sudo echo "WorkingDirectory=/usr/src/teslamate" >> /etc/systemd/system/teslamate.service
 
-sudo echo "ExecStartPre=/usr/src/teslamate/_build/prod/rel/teslamate/bin/teslamate eval "TeslaMate.Release.migrate" >> /etc/systemd/system/teslamate.service
-sudo echo "ExecStart=/usr/src/teslamate/_build/prod/rel/teslamate/bin/teslamate start >> /etc/systemd/system/teslamate.service
-sudo echo "ExecStop=/usr/src/teslamate/_build/prod/rel/teslamate/bin/teslamate stop >> /etc/systemd/system/teslamate.service
+sudo echo "ExecStartPre=/usr/src/teslamate/_build/prod/rel/teslamate/bin/teslamate eval "TeslaMate.Release.migrate"" >> /etc/systemd/system/teslamate.service
+sudo echo "ExecStart=/usr/src/teslamate/_build/prod/rel/teslamate/bin/teslamate start" >> /etc/systemd/system/teslamate.service
+sudo echo "ExecStop=/usr/src/teslamate/_build/prod/rel/teslamate/bin/teslamate stop" >> /etc/systemd/system/teslamate.service
 
-sudo echo "[Install] >> /etc/systemd/system/teslamate.service
-sudo echo "WantedBy=multi-user.target >> /etc/systemd/system/teslamate.service
+sudo echo "[Install"] >> /etc/systemd/system/teslamate.service
+sudo echo "WantedBy=multi-user.target" >> /etc/systemd/system/teslamate.service
 
 # Start service
 sudo systemctl start teslamate
