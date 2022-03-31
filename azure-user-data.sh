@@ -5,6 +5,11 @@ sudo apt-get update
 # sudo systemctl enable apache2
 # echo "<h1>Demo Bootstrapping Azure Virtual Machine</h1>" | sudo tee /var/www/html/index.html
 
+# Install npm
+
+sudo apt-get update
+sudo apt-get install -y npm
+
 # Postgres (v12+)
 
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
