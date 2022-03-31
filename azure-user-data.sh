@@ -85,5 +85,50 @@ sudo MIX_ENV=prod mix do phx.digest, release --overwrite
 sudo locale-gen en_US.UTF-8
 sudo localectl set-locale LANG=en_US.UTF-8
 
+# Starting TeslaMate at boot time
+
+sudo touch /etc/systemd/system/teslamate.service
+sudo chmod 777 /etc/systemd/system/teslamate.service
+
+sudo echo "[Unit]" >> /etc/systemd/system/teslamate.service
+sudo echo "Description=TeslaMate
+sudo echo "After=network.target
+sudo echo "After=postgresql.service
+
+sudo echo "[Service]
+sudo echo "Type=simple
+sudo echo "# User=username
+sudo echo "# Group=groupname
+
+sudo echo "Restart=on-failure
+sudo echo "RestartSec=5
+
+sudo echo "Environment="HOME=/usr/src/teslamate"
+sudo echo "Environment="LANG=en_US.UTF-8"
+sudo echo "Environment="LC_CTYPE=en_US.UTF-8"
+sudo echo "Environment="TZ=Europe/Berlin"
+sudo echo "Environment="PORT=4000"
+sudo echo "Environment="DATABASE_USER=teslamate"
+sudo echo "Environment="DATABASE_PASS=CrazyS0mmer201602!
+sudo echo "Environment="DATABASE_NAME=teslamate"
+sudo echo "Environment="DATABASE_HOST=127.0.0.1"
+sudo echo "Environment="MQTT_HOST=127.0.0.1"
+
+sudo echo "WorkingDirectory=/usr/src/teslamate
+
+sudo echo "ExecStartPre=/usr/src/teslamate/_build/prod/rel/teslamate/bin/teslamate eval "TeslaMate.Release.migrate"
+sudo echo "ExecStart=/usr/src/teslamate/_build/prod/rel/teslamate/bin/teslamate start
+sudo echo "ExecStop=/usr/src/teslamate/_build/prod/rel/teslamate/bin/teslamate stop
+
+sudo echo "[Install]
+sudo echo "WantedBy=multi-user.target
+
+# Start service
+sudo systemctl start teslamate
+
+# Make it start at boot
+sudo systemctl enable teslamate
+
+
 
 
