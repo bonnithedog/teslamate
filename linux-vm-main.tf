@@ -23,45 +23,45 @@ resource "azurerm_network_security_group" "web-linux-vm-nsg" {
   location            = azurerm_resource_group.network-rg.location
   resource_group_name = azurerm_resource_group.network-rg.name
    
- #  security_rule {
- #  name                       = "allow-ssh"
- #  description                = "allow-ssh"
- #  priority                   = 100
+   security_rule {
+   name                       = "allow-ssh"
+   description                = "allow-ssh"
+   priority                   = 100
+   direction                  = "Inbound"
+   access                     = "Allow"
+   protocol                   = "Tcp"
+   source_port_range          = "*"
+   destination_port_range     = "22"
+   source_address_prefix      = "Internet"
+   destination_address_prefix = "*" 
+ }
+
+ 
+#    security_rule {
+#  name                       = "allow-http"
+#  description                = "allow-http"
+#  priority                   = 108
+#  direction                  = "Inbound"
+#  access                     = "Allow"
+#  protocol                   = "Tcp"
+#  source_port_range          = "*"
+#  destination_port_range     = "80"
+#  source_address_prefix      = "Internet"
+#  destination_address_prefix = "*" 
+#}
+ 
+ #      security_rule {
+ #  name                       = "allow-https"
+ #  description                = "allow-https"
+ #  priority                   = 109
  #  direction                  = "Inbound"
  #  access                     = "Allow"
  #  protocol                   = "Tcp"
  #  source_port_range          = "*"
- #  destination_port_range     = "22"
+ #  destination_port_range     = "443"
  #  source_address_prefix      = "Internet"
  #  destination_address_prefix = "*" 
  #}
-
- 
-     security_rule {
-   name                       = "allow-http"
-   description                = "allow-http"
-   priority                   = 108
-   direction                  = "Inbound"
-   access                     = "Allow"
-   protocol                   = "Tcp"
-   source_port_range          = "*"
-   destination_port_range     = "80"
-   source_address_prefix      = "Internet"
-   destination_address_prefix = "*" 
- }
- 
-       security_rule {
-   name                       = "allow-https"
-   description                = "allow-https"
-   priority                   = 109
-   direction                  = "Inbound"
-   access                     = "Allow"
-   protocol                   = "Tcp"
-   source_port_range          = "*"
-   destination_port_range     = "443"
-   source_address_prefix      = "Internet"
-   destination_address_prefix = "*" 
- }
   
   
     security_rule {
@@ -138,22 +138,6 @@ resource "azurerm_network_interface" "web-linux-vm-nic" {
 }
 
 
-
-# Create azurerm_dns_a_record
-
-data "azurerm_public_ip" "web-linux-vm-ip" {
-  name                = "${azurerm_public_ip.web-linux-vm-ip.name}"
-  resource_group_name = "${azurerm_resource_group.network-rg.name}"
-  depends_on = [azurerm_public_ip.web-linux-vm-ip]
-}
-
-resource "azurerm_dns_a_record" "web-linux-vm-ip" {
-  name                = "${var.app_name}"
-  zone_name           = "${azurerm_dns_zone.network-rg.name}"
-  resource_group_name = "${azurerm_dns_zone.network-rg.resource_group_name}"
-  ttl                 = 300
-  records             = azurerm_public_ip.web-linux-vm-ip.id
-}
 
 
 
