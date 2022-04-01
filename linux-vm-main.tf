@@ -144,9 +144,7 @@ resource "azurerm_network_interface" "web-linux-vm-nic" {
 data "azurerm_public_ip" "web-linux-vm-ip" {
   name                = "${azurerm_public_ip.web-linux-vm-ip.name}"
   resource_group_name = "${azurerm_resource_group.network-rg.name}"
-  depends_on = [
-    azurerm_application_gateway.web-linux-vm-ip
-  ]
+  depends_on = [azurerm_public_ip.web-linux-vm-ip]
 }
 
 resource "azurerm_dns_a_record" "web-linux-vm-ip" {
@@ -154,10 +152,9 @@ resource "azurerm_dns_a_record" "web-linux-vm-ip" {
   zone_name           = "${azurerm_dns_zone.network-rg.name}"
   resource_group_name = "${azurerm_dns_zone.network-rg.resource_group_name}"
   ttl                 = 300
-  records             = [
-    "${data.azurerm_public_ip.web-linux-vm-ip.ip_address}"
-  ]
+  records             = azurerm_public_ip.web-linux-vm-ip.id
 }
+
 
 
 
