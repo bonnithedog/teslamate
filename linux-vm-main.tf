@@ -143,7 +143,7 @@ resource "azurerm_network_interface" "web-linux-vm-nic" {
 resource "azurerm_dns_a_record" "bauerteslamate" {
 	depends_on			=[azurerm_public_ip.web-linux-vm-ip]
   	name                = "${var.app_name}"
-  	zone_name           = azurerm_dns_zone.network-rg.name
+  	# zone_name           = azurerm_dns_zone.network-rg.name
   	resource_group_name = azurerm_resource_group.network-rg.name
   	ttl                 = 300
   	records             = azurerm_public_ip.web-linux-vm-ip.id
