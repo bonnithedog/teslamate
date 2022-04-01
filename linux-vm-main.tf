@@ -140,15 +140,19 @@ resource "azurerm_network_interface" "web-linux-vm-nic" {
 
 
 # Create azurerm_dns_a_record
-resource "azurerm_dns_a_record" "bauerteslamate" {
-	depends_on			=[azurerm_public_ip.web-linux-vm-ip]
-  	name                = "${var.app_name}"
-  	# zone_name           = azurerm_dns_zone.network-rg.name
-  	resource_group_name = azurerm_resource_group.network-rg.name
-  	ttl                 = 300
-  	records             = azurerm_public_ip.web-linux-vm-ip.id
+data "azurerm_public_ip" "appgw" {
+  name                = "${azurerm_public_ip.appgw.name}"
+  resource_group_name = "${azurerm_resource_group.main.name}"
+  depends_on = [azurerm_application_gateway.appgw]
 }
 
+resource "azurerm_dns_a_record" "appgw" {
+  name                = "${var.app_name}"
+  zone_name           = "${azurerm_dns_zone.main.name}"
+  resource_group_name = "${azurerm_dns_zone.main.resource_group_name}"
+  ttl                 = 300
+  records             = ["${data.azurerm_public_ip.appgw.ip_address}"]
+}
 
 
 
